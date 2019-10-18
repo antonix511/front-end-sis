@@ -246,7 +246,10 @@ class Imprimir2 extends React.Component {
       */
     var conceptos=[];
     var aux = listafinal;
-
+    console.log("Prueba");
+    console.log(listafinal[0][0].concepto);
+    console.log(listafinal[1][0].concepto);
+    
     for(let j = 0; j<aux.length; j++){
       conceptos.push(aux[j][0].concepto);
     }
@@ -257,10 +260,10 @@ class Imprimir2 extends React.Component {
 
 
   var listadoFinalFormato = [];
-
+ 
   console.log("LISTA 100 REAL NO FEIK");
   console.log(listafinal);
-
+ 
   //var numeroCambio = 0;
 
   for (let l = 0; l<listafinal.length; l++) {

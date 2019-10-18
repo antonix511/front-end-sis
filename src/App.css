@@ -454,7 +454,7 @@ button.delete:hover{
   margin-left: 20px;
 }
 .collection-left {
-  width: 250px;
+  width: 400px;
   margin-top: 2px;
   box-shadow: -6px 0px 0px 0px rgba(0,0,0,0.75);
 }
@@ -497,6 +497,69 @@ button.delete:hover{
   font-size: 36px;
   margin-left: 50px;
 }
+
+/*ULTIMO*/
+.content-menu-right{
+  
+  width: 100%;
+  padding: 2px;
+				 
+				   
+}
+.contenedor {
+  width: 100%;
+  margin: auto;
+  background: rgba(0,0,0,0.05);
+  color: #000;
+  padding: 30px;
+  padding-bottom: 50px;
+  margin-bottom: 10px;
+}
+.label-dato{
+  margin-top: 25px;
+  width: 800px;
+  text-align: left;
+  font-family:  'Noto Sans HK', sans-serif;
+}
+.label-dato input{
+  text-align: left;
+}
+
+.entidad-input{
+  text-align: left;
+		 
+			  
+				  
+					
+}
+.span{
+  /*width: 150px;*/
+  width: 600px;
+  text-align: left;
+}
+span .label-dato{
+  margin-top: 0px;
+}
+.label-dato p{
+  margin-top: 10px;
+  font-weight: 100;
+}
+
+table thead tr td{
+  text-align: center;
+}
+span {
+  margin: 0px;
+  padding: 0px;
+}
+/*BUTTON DE LA VISTA LISTA */
+table tbody tr td .centrar-label {
+  display: block;
+  margin-left: 40%;
+}
+.centrar-contenido td{
+  text-align: center;
+}				   
 
 #main {
   transition: margin-right .5s;

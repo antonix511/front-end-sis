@@ -67,7 +67,7 @@ class AR_EstadoAsignacion extends React.Component {
     }
 
     render(){
-        if(this.props.estadoAsignacion == 'true' ){// ANTHONY || this.props.codAlumno != ""
+        if(this.props.estadoAsignacion == 'true' ){
             return(
                 <div>
                     <Button color="success" onClick={this.toggle}>

@@ -19,7 +19,7 @@ class AR_ReciboResultadoAlumnos extends React.Component {
                     <AR_tableHeaderReciboResultado/>
                     <tbody>
                         {
-                            this.props.listAlumnos.map((alumno, key) => {
+                            this.props.listAlumnos.map(alumno => {
                                 return(
                                     <tr>
                                         <td className="td1">{alumno.codAlumno}</td>

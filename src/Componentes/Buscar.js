@@ -17,7 +17,7 @@ class Buscar extends React.Component {
   render() {
     return(
       <form onSubmit={(e) => this.addNewFiltro(e)}>
-        <h4>Nombress:</h4>
+        <h4>Nombres:</h4>
         <input id="autocomplete-input" className="autocomplete" ref={ ( input ) => this.nombre = input } type="text" placeholder="Nombres" />
         <h4>Apellidos:</h4>
         <input id="autocomplete-input" className="autocomplete" ref={ ( input ) => this.apellidos= input } type="text" placeholder="Apellidos" />

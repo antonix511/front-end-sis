@@ -67,7 +67,7 @@ class AR_ProgramaAsignacion extends React.Component {
     }
 
     render(){
-        if(this.props.siglaPrograma != ""){// ANTHONY
+        if(this.props.siglaPrograma != ""){
             return(
                 <div>
                     {this.props.siglaPrograma} 

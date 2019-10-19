@@ -2,6 +2,10 @@
   "name": "modulo2-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "npm": "6.11.3",
+    "node": "10.16.3"
+  },
   "dependencies": {
     "@material-ui/core": "^4.1.1",
     "@trendmicro/react-sidenav": "^0.4.5",
@@ -29,5 +33,17 @@
   },
   "devDependencies": {
     "file-saver": "^2.0.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -361,6 +361,7 @@ class BuscarNuevo extends React.Component {
     onSubmitRecaudaciones = (e) => {
         var fechaInicio = this.fechaInicio.value;
         var fechaFin = this.fechaFin.value;
+        var lista = [];
 
         if (!fechaInicio && !fechaFin) {
             swal("Ingrese lafecha a buscar", " ", "info");
@@ -391,9 +392,16 @@ class BuscarNuevo extends React.Component {
                 .then((pendienteAsignacion) => {
                     console.log("---PendienteAsignacion---");
                     console.log(pendienteAsignacion);
-
-
-                    var lista = [];
+                    let desc=[];
+                    fetch(CONFIG + 'concepto/conceptos')
+                    .then(response=> {
+                        return response.json()
+                    })
+                    .then(conceptos=> {
+                        for (let index = 0; index < conceptos.length; index++) {
+                            desc.push(conceptos[index]);
+                            
+                        }
                     for (let i = 0; i < pendienteAsignacion.length; i++) {
                         var listadoRec = {
                             apeNom: '',
@@ -406,7 +414,9 @@ class BuscarNuevo extends React.Component {
                             importe: '',
                             estado: '',
                             codAlumno: '',
-                            programa: ''
+                            programa: '',
+                            descripcion: '',
+                            alumnoprog:'',
                         }
 
                         let pendiente_estado;
@@ -415,48 +425,60 @@ class BuscarNuevo extends React.Component {
                         } else {
                             pendiente_estado = "false";
                         }
-
+                            //DESCRIPCION DE CONCEPTO//
+                            for (let index = 0; index < desc.length; index++) {
+                               if (desc[index].concepto==pendienteAsignacion[i].concepto) {
+                                 listadoRec.descripcion=desc[index].descripcion;  
+                               }
+                                
+                            }
                         if (pendienteAsignacion[i].moneda == '108') {
 
                             listadoRec.apeNom = pendienteAsignacion[i].apeNom;
                             listadoRec.concepto = pendienteAsignacion[i].concepto;
                             listadoRec.fecha = pendienteAsignacion[i].fecha;
-                            listadoRec.id_rec = pendienteAsignacion[i].id_rec;
+                            listadoRec.id_rec = pendienteAsignacion[i].idRec;
                             listadoRec.numero = pendienteAsignacion[i].numero;
-                            listadoRec.idAlum = pendienteAsignacion[i].id_alum;
+                            listadoRec.idAlum = pendienteAsignacion[i].idAlum;
                             listadoRec.moneda = 'SOL';
                             listadoRec.importe = 'S/' + pendienteAsignacion[i].importe;
                             listadoRec.estado = pendiente_estado;
                             listadoRec.codAlumno = pendienteAsignacion[i].codAlumno;
-                            listadoRec.programa = pendienteAsignacion[i].programa;
+                            listadoRec.programa = pendienteAsignacion[i].idProg;
+                            listadoRec.alumnoprog='00';
+                            //funcion alumno programa// falta la funcion 
 
                         } else if (pendienteAsignacion[i].moneda == '113') {
 
                             listadoRec.apeNom = pendienteAsignacion[i].apeNom;
                             listadoRec.concepto = pendienteAsignacion[i].concepto;
                             listadoRec.fecha = pendienteAsignacion[i].fecha;
-                            listadoRec.id_rec = pendienteAsignacion[i].id_rec;
+                            listadoRec.id_rec = pendienteAsignacion[i].idRec;
                             listadoRec.numero = pendienteAsignacion[i].numero;
-                            listadoRec.idAlum = pendienteAsignacion[i].id_alum;
+                            listadoRec.idAlum = pendienteAsignacion[i].idAlum;
                             listadoRec.moneda = 'DOL';
-                            listadoRec.importe = '$ ' + pendienteAsignacion[i].importe;
+                            listadoRec.importe = '$' + pendienteAsignacion[i].importe;
                             listadoRec.estado = pendiente_estado;
                             listadoRec.codAlumno = pendienteAsignacion[i].codAlumno;
-                            listadoRec.programa = pendienteAsignacion[i].programa;
+                            listadoRec.programa = pendienteAsignacion[i].idProg;
+                            listadoRec.alumnoprog='00';
+                            //funcion alumno programa// falta la funcion 
 
                         } else {
 
                             listadoRec.apeNom = pendienteAsignacion[i].apeNom;
                             listadoRec.concepto = pendienteAsignacion[i].concepto;
                             listadoRec.fecha = pendienteAsignacion[i].fecha;
-                            listadoRec.id_rec = pendienteAsignacion[i].id_rec;
+                            listadoRec.id_rec = pendienteAsignacion[i].idRec;
                             listadoRec.numero = pendienteAsignacion[i].numero;
-                            listadoRec.idAlum = pendienteAsignacion[i].id_alum;
+                            listadoRec.idAlum = pendienteAsignacion[i].idAlum;
                             listadoRec.moneda = ' ';
                             listadoRec.importe = pendienteAsignacion[i].importe;
                             listadoRec.estado = pendiente_estado;
                             listadoRec.codAlumno = pendienteAsignacion[i].codAlumno;
-                            listadoRec.programa = pendienteAsignacion[i].programa;
+                            listadoRec.programa = pendienteAsignacion[i].idProg;
+                            listadoRec.alumnoprog='00';
+                            //funcion alumno programa// falta la funcion 
                         }
                         lista.push(listadoRec);
 
@@ -470,6 +492,7 @@ class BuscarNuevo extends React.Component {
                     if (this.state.objPendienteAsignacion.length > 0) {
                         this.setState({
                             buscarPendiente: true
+                            //mostrar tabla//
                         });
                         swal("Consulta realizada exitosamente", " ", "success");
                     } else {
@@ -478,6 +501,7 @@ class BuscarNuevo extends React.Component {
                         });
                         swal("No hay pendientes por asignación", " ", "info")
                     }
+                    })
                 })
                 .catch((error) => {
                     this.setState({
@@ -1064,7 +1088,8 @@ class BuscarNuevo extends React.Component {
     }
 
     buscarDni = (dni) => {
-        fetch(CONFIG + 'alumnoprograma/buscard/' + dni)
+        fetch(CONFIG + 'alumnoprograma/leer/dni/' + dni)
+        // fetch(CONFIG + 'alumnoprograma/buscard/' + dni)
             .then((response) => {
                 return response.json();
             })
@@ -1105,7 +1130,8 @@ class BuscarNuevo extends React.Component {
 
     buscarCodigo = (codigo) => {
         console.log(codigo, "Codigo");
-        fetch(CONFIG + 'alumnoprograma/buscarc/' + codigo)
+        fetch(CONFIG + 'alumnoprograma/leer/cod/' + codigo)
+        // fetch(CONFIG + 'alumnoprograma/buscarc/' + codigo)
             .then((response) => {
                 return response.json();
             })

@@ -23,45 +23,45 @@ class AR_PendienteAsignacion extends React.Component {
                             this.props.listPendienteAsignacion.map((recaudaciones, key) => {
                                 return(
                                     <tr>
-                                        <td className="td1">{key+1}</td>
-                                        <td className="td1 text-align left" >{recaudaciones.apeNom}</td>
+                                        <td className="td1">{recaudaciones.id_rec}</td>
+                                        <td className="td1 text-align left" >{recaudaciones.descripcion}</td>
+                                        <td className="td1">{recaudaciones.apeNom}</td>
+                                        <td className="td1">{recaudaciones.alumnoprog}</td>
                                         <td className="td1">{recaudaciones.concepto}</td>
-                                        <td className="td1">{recaudaciones.numero}</td>
-                                        <td className="td1">{recaudaciones.moneda}</td>
-                                        <td className="td1">{recaudaciones.importe}</td>
                                         <td className="td1">{recaudaciones.fecha}</td>
+                                        <td className="td1">{recaudaciones.importe}</td>
                                         
-                                        <td className="td1">
-                                                <AR_EstadoAsignacion estadoAsignacion={recaudaciones.estado} />
-                                        </td>
-                                        
-                                        <td className="td1">{recaudaciones.codAlumno}</td>
-                                        
-                                        <td className="td1">{recaudaciones.programa}</td>
+                                {/* <td className="td1">
+                                        <AR_EstadoAsignacion estadoAsignacion={recaudaciones.estado} />
+                                </td>
+                                
+                                <td className="td1">{recaudaciones.codAlumno}</td>
+                                
+                                <td className="td1">{recaudaciones.programa}</td>
 
-                                        <td className="td1">
-                                            <form>
-                                                <div className="row justify-content-md-center">
-                                                    <div className="col-xs-8">
-                                                        <Select value={this.state.alumno} onChange={this.handleChangeAlumno} options={this.state.opcAlumno}/>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </td>
-                                        <td className="td1">
-                                            <div className="row justify-content-md-center">
-                                                <button className="btn btn-primary btn-sm" onClick={this.onClickBuscar}>
-                                                    <i className="large material-icons left">search</i>
-                                                </button>
+                                <td className="td1">
+                                    <form>
+                                        <div className="row justify-content-md-center">
+                                            <div className="col-xs-8">
+                                                <Select value={this.state.alumno} onChange={this.handleChangeAlumno} options={this.state.opcAlumno}/>
                                             </div>
-                                        </td>
-                                        <td className="td1">
-                                            <div className="row justify-content-md-center">
-                                                <button className="btn btn-success btn-sm" onClick={this.onClickBuscar}>
-                                                    <i className="large material-icons left">save</i>
-                                                </button>
-                                            </div>
-                                        </td>
+                                        </div>
+                                    </form>
+                                </td>
+                                <td className="td1">
+                                    <div className="row justify-content-md-center">
+                                        <button className="btn btn-primary btn-sm" onClick={this.onClickBuscar}>
+                                            <i className="large material-icons left">search</i>
+                                        </button>
+                                    </div>
+                                </td>
+                                <td className="td1">
+                                    <div className="row justify-content-md-center">
+                                        <button className="btn btn-success btn-sm" onClick={this.onClickBuscar}>
+                                            <i className="large material-icons left">save</i>
+                                        </button>
+                                    </div>
+                                </td> */}
                                     </tr>
                                 )
                             })

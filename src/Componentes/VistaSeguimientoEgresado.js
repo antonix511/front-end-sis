@@ -12,7 +12,6 @@ import VistaValorarServiciosUniv from './VistaValorarServiciosUniv';
 class VistaSeguimientoEgresado extends React.Component {
     constructor(props) {
         super(props);
-        dni: '',
         this.state = {
             form1: true,
             form2: false,

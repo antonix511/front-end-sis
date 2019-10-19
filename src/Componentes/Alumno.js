@@ -31,7 +31,6 @@ class Alumno extends React.Component {
         </div>)
         }
         else{
-            <p>No hay datos de alumno para mostrar</p>
         }
  
   }

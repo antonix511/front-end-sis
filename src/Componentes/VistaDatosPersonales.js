@@ -9,7 +9,6 @@ class VistaDatosPersonales extends React.Component {
     constructor(props) {
         super(props);
 
-        dni: '',
         this.state = {
             codigo: this.props.codigo,
             apePaterno: "",
